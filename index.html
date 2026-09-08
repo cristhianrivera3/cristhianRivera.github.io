@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cristhian Rivera | Portafolio Profesional</title>
+    <title>Cristhian Rivera | Ethical Hacker & Red Team</title>
     <style>
         * {
             margin: 0;
@@ -23,6 +23,23 @@
             margin: 0 auto;
             text-align: center;
         }
+        
+        /* Header */
+        .header {
+            margin-bottom: 2rem;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #c084fc;
+            border: 1px solid #3b2a5a;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
         h1 {
             font-size: 3.5rem;
             font-weight: 800;
@@ -30,85 +47,88 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
         .subtitle {
             color: #c4b5fd;
             font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .subtitle span {
+            color: #10b981;
         }
         .tagline {
             color: #94a3b8;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             font-size: 0.95rem;
+            line-height: 1.6;
         }
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
+        
+        /* Sección del portafolio de Canva */
+        .canva-section {
             margin-top: 2rem;
-            margin-bottom: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
         }
-        .card {
-            background: rgba(20, 15, 35, 0.6);
-            backdrop-filter: blur(8px);
-            border: 1px solid #3b2a5a;
-            border-radius: 28px;
-            padding: 2rem 1.8rem;
-            width: 280px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: #a855f7;
-            box-shadow: 0 20px 30px -12px rgba(139,92,246,0.3);
-            background: rgba(30, 20, 50, 0.7);
-        }
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .card h3 {
+        .canva-section h2 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
             color: #e9d5ff;
         }
-        .card p {
-            font-size: 0.85rem;
+        .canva-section .desc {
             color: #94a3b8;
-            margin-bottom: 1rem;
-        }
-        .card-badge {
-            display: inline-block;
-            background: rgba(139, 92, 246, 0.2);
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            color: #c084fc;
-        }
-        /* Sección del portafolio de Canva */
-        .canva-section {
-            margin-top: 4rem;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(139, 92, 246, 0.3);
-        }
-        .canva-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #e9d5ff;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
         }
         .canva-wrapper {
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             background: rgba(0,0,0,0.3);
             border-radius: 16px;
             padding: 1rem;
+            border: 1px solid #2a1a3f;
         }
+        .canva-wrapper iframe {
+            border-radius: 8px;
+        }
+        .canva-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #c084fc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .canva-link:hover {
+            color: #a855f7;
+            text-decoration: underline;
+        }
+        
+        /* Badges de habilidades */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+        .skill-tag {
+            background: rgba(20, 15, 35, 0.6);
+            border: 1px solid #3b2a5a;
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #c4b5fd;
+        }
+        .skill-tag.highlight {
+            border-color: #a855f7;
+            background: rgba(139, 92, 246, 0.15);
+            color: #e9d5ff;
+        }
+        
+        /* Footer */
         footer {
             margin-top: 4rem;
             color: #5a4d7a;
@@ -119,83 +139,84 @@
             justify-content: center;
             gap: 1.5rem;
             margin-top: 1rem;
+            flex-wrap: wrap;
         }
         .contact-links a {
             color: #7e8ba3;
             text-decoration: none;
             transition: color 0.2s;
+            font-size: 0.9rem;
         }
         .contact-links a:hover {
             color: #c084fc;
         }
+        
+        /* Responsive */
         @media (max-width: 700px) {
             h1 { font-size: 2.2rem; }
-            .cards { gap: 1rem; }
-            .card { width: 260px; padding: 1.5rem; }
+            body { padding: 1rem; }
+            .skills { gap: 0.4rem; }
+            .skill-tag { font-size: 0.65rem; padding: 0.3rem 0.8rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Cristhian Rivera</h1>
-        <div class="subtitle">Mis especialidades · Una sola identidad</div>
-        <div class="tagline">
-            Estudiante de Desarrollo de Software | Ciberseguridad | Marketing Digital
+        
+        <!-- HEADER -->
+        <div class="header">
+            <div class="badge">🔐 Ethical Hacking · Red Team</div>
+            <h1>Cristhian Rivera</h1>
+            <div class="subtitle">Ethical Hacker · <span>Red Team</span> · Software Developer</div>
+            <div class="tagline">
+                Apasionado por la ciberseguridad, el trabajo en equipo y la resolución de problemas. 
+                Comprometido con el autoaprendizaje constante y la integridad profesional.
+            </div>
         </div>
 
-        <div class="cards">
-            <!-- Tarjeta 1: Programador -->
-            <a href="/dev/" class="card">
-                <div class="card-icon">💻</div>
-                <h3>Programador</h3>
-                <p>Python • JavaScript • HTML/CSS • Git</p>
-                <span class="card-badge">GitHub Pages</span>
-            </a>
-
-            <!-- Tarjeta 2: Community Manager -->
-            <a href="#" class="card">
-                <div class="card-icon">📱</div>
-                <h3>Community Manager</h3>
-                <p>Estrategia de contenido • Análisis de métricas • Campañas</p>
-                <span class="card-badge">Próximamente</span>
-            </a>
-
-            <!-- Tarjeta 3: Modelo -->
-            <a href="#" class="card">
-                <div class="card-icon">📸</div>
-                <h3>Modelaje</h3>
-                <p>Portafolio visual • Proyectos fotográficos</p>
-                <span class="card-badge">Próximamente</span>
-            </a>
+        <!-- SKILLS -->
+        <div class="skills">
+            <span class="skill-tag highlight">🔴 Red Team</span>
+            <span class="skill-tag">🛡️ Ethical Hacking</span>
+            <span class="skill-tag">🐍 Python</span>
+            <span class="skill-tag">☕ Java</span>
+            <span class="skill-tag">💻 JavaScript</span>
+            <span class="skill-tag">🐧 Linux</span>
+            <span class="skill-tag">🐳 Docker</span>
+            <span class="skill-tag">🔷 Azure</span>
+            <span class="skill-tag">📦 Git</span>
+            <span class="skill-tag">🔐 Kali Linux</span>
         </div>
 
-        <!-- SECCIÓN DEL PORTAFOLIO DE CANVA (AL FINAL) -->
+        <!-- SECCIÓN DEL PORTAFOLIO DE CANVA -->
         <div class="canva-section">
-            <h2>🎨 Portafolio Full Stack en Canva</h2>
-            <p>Diseño interactivo · Proyectos completos</p>
+            <h2>🎯 Portafolio de Ciberseguridad</h2>
+            <p class="desc">Proyectos · Laboratorios · Write-ups · Metodologías</p>
             
             <div class="canva-wrapper">
-                <!-- CÓDIGO DE INCRUSTACIÓN DE CANVA -->
-                <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
-                        src="https://www.canva.com/design/DAHJscqH_EM/-kt7eCK6EHbeRZndIk_ftg/view?embed" 
-                        allowfullscreen="allowfullscreen" allow="fullscreen">
+                <!-- Código de incrustación de Canva actualizado -->
+                <div style="position: relative; width: 100%; height: 0; padding-top: 100.0000%;
+                     padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+                     border-radius: 8px; will-change: transform;">
+                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                        src="https://www.canva.com/design/DAHUp4i47IE/HqWCvumf7J-1SrbDJPldrw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
                     </iframe>
                 </div>
-                <a href="https://www.canva.com/design/DAHJscqH_EM/-kt7eCK6EHbeRZndIk_ftg/view?utm_content=DAHJscqH_EM&utm_campaign=designshare&utm_medium=embeds&utm_source=link" 
-                   target="_blank" rel="noopener" style="color: #c084fc;">
-                   🔗 Abrir en Canva (nueva ventana)
+                <a href="https://www.canva.com/design/DAHUp4i47IE/HqWCvumf7J-1SrbDJPldrw/view?utm_content=DAHUp4i47IE&utm_campaign=designshare&utm_medium=embeds&utm_source=link" 
+                   target="_blank" rel="noopener" class="canva-link">
+                   🔗 Ver portafolio en Canva
                 </a>
             </div>
         </div>
 
+        <!-- FOOTER -->
         <footer>
             <div class="contact-links">
-                <a href="https://github.com/cristhianrivera3" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/cristhian-rivera-316210381/" target="_blank">LinkedIn</a>
-                <a href="mailto:cristhianriverasz123@gmail.com">cristhianriverasz123@gmail.com</a>
+                <a href="https://github.com/cristhianrivera3" target="_blank">🐙 GitHub</a>
+                <a href="https://www.linkedin.com/in/cristhian-rivera-316210381/" target="_blank">🔗 LinkedIn</a>
+                <a href="mailto:cristhianriverasz123@gmail.com">✉️ Email</a>
             </div>
-            <p style="margin-top: 1rem;">© 2025 Cristhian Rivera</p>
+            <p style="margin-top: 1rem;">© 2026 Cristhian Rivera · Ethical Hacking & Red Team</p>
         </footer>
     </div>
 </body>
